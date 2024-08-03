@@ -1,0 +1,328 @@
+1. Create table Student with schema (roll_no, name, division, branch, city, marks)
+mysql> create table students(roll_no int not null primary key,name varchar (50),division
+varchar(50),
+branch varchar (50),city varchar (100), marks int (100));
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+mysql> show tables;
++------------------+
+| Tables_in_asignment2 |
++------------------+
+| students |
++------------------+
+1 row in set (0.00 sec)
+mysql> insert into students (roll_no,name,division,branch,city,marks) values
+-> ^C
+^C
+mysql> insert into students (roll_no,name,division,branch,city,marks)
+values(01,adarsh,A,computer,amravati,100);
+
+mysql> insert into students (roll_no,name,division,branch,city,marks)
+values(01,"tadarsh","A","computer","amravati",100);
+Query OK, 1 row affected (0.00 sec)
+mysql> select *from students;
++---------+--------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+--------+----------+----------+----------+-------+
+| 1 | adarsh | A | computer | amravati | 100 |
++---------+--------+----------+----------+----------+-------+
+
+2. Insert 10 records to the table students
+mysql> insert into students (name,division,branch,city,marks)
+values("ram","A","computer","nagpur",100),("susmit","B","civil","nagpur",70);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2 Duplicates: 0 Warnings: 0
+mysql> select *from students;
++---------+--------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+--------+----------+----------+----------+-------+
+| 1 | adarsh | A | computer | amravati | 100 |
+| 2 | ram | A | computer | nagpur | 100 |
+| 3 | susmit | B | civil | nagpur | 70 |
++---------+--------+----------+----------+----------+-------+
+3 rows in set (0.00 sec)
+mysql> insert into students (name,division,branch,city,marks)
+values("tommy","B","computer","pune",50),("jack","B","aids","nagpur",70);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2 Duplicates: 0 Warnings: 0
+
+mysql> insert into students (name,division,branch,city,marks)
+values("pat","B","computer","pune",60),("joe","A","aids","pune",90),("raj","A","aids","amravati",8
+8),("ajit","B","civil","pune",99);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4 Duplicates: 0 Warnings: 0
+mysql> select *from students;
++---------+--------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+--------+----------+----------+----------+-------+
+| 1 | adarsh | A | computer | amravati | 100 |
+| 2 | ram | A | computer | nagpur | 100 |
+| 3 | susmit | B | civil | nagpur | 70 |
+| 4 | tommy | B | computer | pune | 50 |
+| 5 | jack | B | aids | nagpur | 70 |
+| 6 | pat | B | computer | pune | 60 |
+| 7 | joe | A | aids | pune | 90 |
+| 8 | raj | A | aids | amravati | 88 |
+| 9 | ajit | B | civil | pune | 99 |
++---------+--------+----------+----------+----------+-------+
+9 rows in set (0.00 sec)
+mysql> insert into students (name,division,branch,city,marks)
+values("james","A","computer","amravati",66);
+Query OK, 1 row affected (0.01 sec)
+mysql> select *from students;
++---------+--------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+--------+----------+----------+----------+-------+
+| 1 | adarsh | A | computer | amravati | 100 |
+| 2 | ram | A | computer | nagpur | 100 |
+| 3 | susmit | B | civil | nagpur | 70 |
+| 4 | tommy | B | computer | pune | 50 |
+| 5 | jack | B | aids | nagpur | 70 |
+| 6 | pat | B | computer | pune | 60 |
+| 7 | joe | A | aids | pune | 90 |
+| 8 | raj | A | aids | amravati | 88 |
+| 9 | ajit | B | civil | pune | 99 |
+| 10 | james | A | computer | amravati | 66 |
++---------+--------+----------+----------+----------+-------+
+10 rows in set (0.00 sec)
+
+3. List all the student names with their corresponding city
+mysql> select name,city from students;
++--------+----------+
+| name | city |
++--------+----------+
+| adarsh | amravati |
+| ram | nagpur |
+| susmit | nagpur |
+| tommy | pune |
+| jack | nagpur |
+| pat | pune |
+| joe | pune |
+| raj | amravati |
+| ajit | pune |
+| james | amravati |
++--------+----------+
+10 rows in set (0.00 sec)
+4. List all the distinct names of the students
+
+mysql> select distinct name from students;
++--------+
+| name |
++--------+
+| adarsh |
+| ram |
+| susmit |
+| tommy |
+| jack |
+| pat |
+| joe |
+| raj |
+| ajit |
+| james |
++--------+
+10 rows in set (0.00 sec)
+5. List all the records of the students with all the attributes
+mysql> select * from students;
+\+---------+--------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+--------+----------+----------+----------+-------+
+| 1 | adarsh | A | computer | amravati | 100 |
+| 2 | ram | A | computer | nagpur | 100 |
+| 3 | susmit | B | civil | nagpur | 70 |
+| 4 | tommy | B | computer | pune | 50 |
+| 5 | jack | B | aids | nagpur | 70 |
+| 6 | pat | B | computer | pune | 60 |
+| 7 | joe | A | aids | pune | 90 |
+| 8 | raj | A | aids | amravati | 88 |
+
+| 9 | ajit | B | civil | pune | 99 |
+| 10 | james | A | computer | amravati | 66 |
++---------+--------+----------+----------+----------+-------+
+
+6. List all the students whose marks are greater than 75
+
+mysql> s
++--------+
+| name |
++--------+
+| adarsh |
+| ram |
+| joe |
+| raj |
+| ajit |
++--------+
+5 rows in set (0.00 sec)
+
+7. List all the students whose name starts with the alphabet ‘S’
+
+mysql> select * from students where name like 'j%';
++---------+-------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+-------+----------+----------+----------+-------+
+| 5 | jack | B | aids | nagpur | 70 |
+| 7 | joe | A | aids | pune | 90 |
+| 10 | james | A | computer | amravati | 66 |
++---------+-------+----------+----------+----------+-------+
+3 rows in set (0.00 sec)
+8. List all the students whose marks are in the range of 50 to 60
+
+mysql> select name,marks from students where marks>50 and marks <60;
+Empty set (0.00 sec)
+mysql> select name,marks from students where marks>50 and marks <65;
++------+-------+
+| name | marks |
++------+-------+
+| pat | 60 |
++------+-------+
+1 row in set (0.00 sec)
+
+9. List all the students whose branch is ‘computer’ and city is ‘Pune’
+
+mysql> select name,branch,city from students where city ="pune" and branch="computer";
++-------+----------+------+
+| name | branch | city |
++-------+----------+------+
+| tommy | computer | pune |
+| pat | computer | pune |
++-------+----------+------+
+2 rows in set (0.00 sec)
+10. Update the branch of a student to ‘IT’ whose roll number is 9
+
+mysql> update students set branch ="IT" where roll_no= 9;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1 Changed: 1 Warnings: 0
+
+mysql> select * from students;
++---------+--------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+--------+----------+----------+----------+-------+
+| 1 | ram | A | computer | nagpur | 100 |
+| 2 | susmit | B | civil | nagpur | 70 |
+| 3 | tommy | B | computer | pune | 50 |
+| 4 | jack | B | aids | nagpur | 70 |
+| 5 | pat | B | computer | pune | 60 |
+| 6 | joe | A | aids | pune | 90 |
+| 7 | raj | A | aids | amravati | 88 |
+| 8 | ajit | B | civil | pune | 99 |
+| 9 | james | A | IT | amravati | 66 |
++---------+--------+----------+----------+----------+-------+
+9 rows in set (0.00 sec)
+
+11. Delete the student records whose division is ‘BE’
+
+mysql> delete from students where division ="B";
+Query OK, 5 rows affected (0.00 sec)
+
+mysql> select * from students;
++---------+-------+----------+----------+----------+-------+
+| roll_no | name | division | branch | city | marks |
++---------+-------+----------+----------+----------+-------+
+| 1 | ram | A | computer | nagpur | 100 |
+| 6 | joe | A | aids | pune | 90 |
+| 7 | raj | A | aids | amravati | 88 |
+| 9 | james | A | IT | amravati | 66 |
++---------+-------+----------+----------+----------+-------+
+4 rows in set (0.00 sec)
+
+12. Create another table TE_Students with Schema( roll_no, name)
+
+create table te_students(roll_no int not null primary key,name varchar (50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into te_students (roll_no,name) values(01,adarsh);
+Query OK, 1 row affected (0.00 sec)
+mysql> alter table te_students modify roll_no int auto_increment;
+Query OK, 1 row affected (0.03 sec)
+Records: 1 Duplicates: 0 Warnings: 0
+
+mysql> insert into te_students (name) values("jay"),("ram"),("raj"),("karan"),("tom"),("joy");
+Query OK, 6 rows affected (0.01 sec)
+Records: 6 Duplicates: 0 Warnings: 0
+
+mysql> select * from te_students;
++---------+--------+
+| roll_no | name |
++---------+--------+
+| 1 | adarsh |
+| 2 | jay |
+| 3 | ram |
+| 4 | raj |
+| 5 | karan |
+| 6 | tom |
+| 7 | joy |
++---------+--------+
+7 rows in set (0.00 sec)
+
+13. List all the roll numbers unionly in the relations Student and TE_Students
+
+mysql> (select roll_no,name from students)union(select roll_no,name from te_students);
++---------+--------+
+| roll_no | name |
++---------+--------+
+| 1 | ram |
+| 6 | joe |
+| 7 | raj |
+| 9 | james |
+| 1 | adarsh |
+| 2 | jay |
+| 3 | ram |
+| 4 | raj |
+| 5 | karan |
+| 6 | tom |
+| 7 | joy |
++---------+--------+
+
+11 rows in set (0.00 sec)
+
+14. Display name of all the students belonging to relation Student in Upper case
+
+mysql> select upper (name) from te_students;
++--------------+
+| upper (name) |
++--------------+
+| ADARSH |
+| JAY |
+| RAM |
+| RAJ |
+| KARAN |
+| TOM |
+| JOY |
++--------------+
+7 rows in set (0.00 sec)
+
+15. Display the binary and hex equivalent of marks for all the students belonging to Student relation
+
+mysql> select hex (marks) from students;
++-------------+
+| hex (marks) |
++-------------+
+| 64 |
+| 5A |
+| 58 |
+| 42 |
++-------------+
+4 rows in set (0.00 sec)
+
+mysql> select bin (marks) from te_students;
+ERROR 1054 (42S22): Unknown column 'marks' in 'field list'
+mysql> select bin (marks) from students;
+
++-------------+
+| bin (marks) |
++-------------+
+| 1100100 |
+| 1011010 |
+| 1011000 |
+| 1000010 |
++-------------+
+4 rows in set (0.00 sec)
+
+mysql> select ascii (marks) from students;
++---------------+
+| ascii (marks) |
++---------------+
+| 49 |
+| 57 |
+| 56 |
+| 54 |
++---------------+
+4 rows in set (0.00 sec)
